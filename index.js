@@ -116,7 +116,7 @@
         INVERT_DISTANCE: 700,
         MAX_BLINK_COUNT: 3,
         MAX_CLOUDS: 6,
-        MAX_OBSTACLE_LENGTH: 10,
+        MAX_OBSTACLE_LENGTH: 3,
         MAX_OBSTACLE_DUPLICATION: 10,
         MAX_SPEED: 13,
         MIN_JUMP_HEIGHT: 35,
@@ -1258,7 +1258,7 @@
      * Maximum obstacle grouping count.
      * @const
      */
-    Obstacle.MAX_OBSTACLE_LENGTH = 10,
+    Obstacle.MAX_OBSTACLE_LENGTH = 3,
 
 
         Obstacle.prototype = {
