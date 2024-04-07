@@ -1891,7 +1891,7 @@
         MAX_DISTANCE_UNITS: 3,
 
         // Distance that causes achievement animation.
-        ACHIEVEMENT_DISTANCE: 0,
+        ACHIEVEMENT_DISTANCE: 1,
 
         // Used for conversion from pixel distance to a scaled unit.
         COEFFICIENT: 0.025,
@@ -1900,7 +1900,7 @@
         FLASH_DURATION: 1000 / 4,
 
         // Flash iterations for achievement animation.
-        FLASH_ITERATIONS: 3
+        FLASH_ITERATIONS: 1
     };
 
 
