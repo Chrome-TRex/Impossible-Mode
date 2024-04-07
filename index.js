@@ -1252,7 +1252,7 @@
      * Coefficient for calculating the maximum gap.
      * @const
      */
-    Obstacle.MAX_GAP_COEFFICIENT = 1.5;
+    Obstacle.MAX_GAP_COEFFICIENT = 0.1;
 
     /**
      * Maximum obstacle grouping count.
