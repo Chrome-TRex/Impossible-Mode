@@ -118,11 +118,11 @@
         MAX_CLOUDS: 6,
         MAX_OBSTACLE_LENGTH: 3,
         MAX_OBSTACLE_DUPLICATION: 2,
-        MAX_SPEED: 25,
+        MAX_SPEED: 13,
         MIN_JUMP_HEIGHT: 35,
         MOBILE_SPEED_COEFFICIENT: 1.2,
         RESOURCE_TEMPLATE_ID: 'audio-resources',
-        SPEED: 25,
+        SPEED: 6,
         SPEED_DROP_COEFFICIENT: 3
     };
 
@@ -754,9 +754,35 @@
         /**
          * Game over state.
          */
-        gameOver: function () {
-        },
+       gameOver: function () {
+            this.playSound(this.soundFx.HIT);
+            vibrate(200);
 
+            this.stop();
+            this.crashed = true;
+            this.distanceMeter.acheivement = false;
+
+            this.tRex.update(100, Trex.status.CRASHED);
+
+            // Game over panel.
+            if (!this.gameOverPanel) {
+                this.gameOverPanel = new GameOverPanel(this.canvas,
+                    this.spriteDef.TEXT_SPRITE, this.spriteDef.RESTART,
+                    this.dimensions);
+            } else {
+                this.gameOverPanel.draw();
+            }
+
+            // Update the high score.
+            if (this.distanceRan > this.highestScore) {
+                this.highestScore = Math.ceil(this.distanceRan);
+                this.distanceMeter.setHighScore(this.highestScore);
+            }
+
+            // Reset the time clock.
+            this.time = getTimeStamp();
+        },
+        
         stop: function () {
             this.playing = false;
             this.paused = true;
@@ -1232,7 +1258,7 @@
      * Maximum obstacle grouping count.
      * @const
      */
-    Obstacle.MAX_OBSTACLE_LENGTH = 3,
+    Obstacle.MAX_OBSTACLE_LENGTH = 1000,
 
 
         Obstacle.prototype = {
